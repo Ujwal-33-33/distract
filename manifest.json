@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "distract_free",
+    "version": "1.0",
+    "description": "make you distract free",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "icon.png"
+    },
+    "permissions": ["activeTab", "scripting"]
+  }
+  
