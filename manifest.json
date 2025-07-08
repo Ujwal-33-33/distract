@@ -1,12 +1,36 @@
 {
-    "manifest_version": 3,
-    "name": "distract_free",
-    "version": "1.0",
-    "description": "make you distract free",
-    "action": {
-      "default_popup": "index.html",
-      "default_icon": "icon.png"
-    },
-    "permissions": ["activeTab", "scripting"]
-  }
-  
+  "manifest_version": 3,
+  "name": "Focus Shield",
+  "version": "1.0",
+  "description": "Blocks distracting websites and closes the tab automatically.",
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.instagram.com/*",
+    "*://*.facebook.com/*"
+  ],
+  "background": {
+    "service_worker": "/background.js"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.instagram.com/*",
+        "*://*.facebook.com/*"
+      ],
+      "js": ["/content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
